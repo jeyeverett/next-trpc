@@ -1,7 +1,5 @@
 import { test } from '@playwright/test';
 
-test.setTimeout(35e3);
-
 test('send message', async ({ browser, page }) => {
   const viewer = await browser.newPage();
   await viewer.goto('/');

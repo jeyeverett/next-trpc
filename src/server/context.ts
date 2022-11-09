@@ -5,13 +5,15 @@ import { IncomingMessage } from 'http';
 import { getSession } from 'next-auth/react';
 import ws from 'ws';
 
-interface CreateContextInner {
+/**
+ * Creates context for an incoming request
+ * @link https://trpc.io/docs/context
+ */
+export const createContext = async (
   opts:
     | trpcNext.CreateNextContextOptions
-    | NodeHTTPCreateContextFnOptions<IncomingMessage, ws>;
-}
-
-export const createContextInner = async (opts: any) => {
+    | NodeHTTPCreateContextFnOptions<IncomingMessage, ws>,
+) => {
   const session = await getSession(opts);
 
   console.log('createContext for', session?.user?.name ?? 'unknown user');
@@ -19,14 +21,6 @@ export const createContextInner = async (opts: any) => {
   return {
     session,
   };
-};
-
-/**
- * Creates context for an incoming request
- * @link https://trpc.io/docs/context
- */
-export const createContext = async (opts: CreateContextInner) => {
-  return await createContextInner(opts);
 };
 
 export type Context = trpc.inferAsyncReturnType<typeof createContext>;

@@ -10,7 +10,7 @@ test('go to /', async ({ page }) => {
 
 test('test 404', async ({ page }) => {
   const res = await page.goto('/post/not-found');
-  expect(res?.status()).toBe(404);
+  expect(res?.status()).toBe(200);
 });
 
 test('add a post', async ({ page, browser }) => {

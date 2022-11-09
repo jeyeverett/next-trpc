@@ -1,12 +1,13 @@
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { wsLink, createWSClient } from '@trpc/client/links/wsLink';
-import { createTRPCNext } from '@trpc/next';
 import type { inferProcedureOutput } from '@trpc/server';
+import { createTRPCNext } from '@trpc/next';
 import { NextPageContext } from 'next';
 import getConfig from 'next/config';
-import type { AppRouter } from '~/server/routers/_app';
 import superjson from 'superjson';
+
+import type { AppRouter } from '~/server/routers/_app';
 
 // ℹ️ Type-only import:
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export
@@ -14,23 +15,6 @@ import superjson from 'superjson';
 const { publicRuntimeConfig } = getConfig();
 const { APP_URL, WS_URL } = publicRuntimeConfig;
 
-const getBaseUrl = () => {
-  if (typeof window !== 'undefined') {
-    return '';
-  }
-  // reference for vercel.com
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-
-  // // reference for render.com
-  if (process.env.RENDER_INTERNAL_HOSTNAME) {
-    return `http://${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`;
-  }
-
-  // assume localhost
-  return APP_URL;
-};
 function getEndingLink(ctx: NextPageContext | undefined) {
   if (typeof window === 'undefined') {
     return httpBatchLink({
@@ -97,10 +81,3 @@ export const trpc = createTRPCNext<AppRouter>({
 });
 
 // export const transformer = superjson;
-/**
- * This is a helper method to infer the output of a query resolver
- * @example type HelloOutput = inferQueryOutput<'hello'>
- */
-export type inferQueryOutput<
-  TRouteKey extends keyof AppRouter['_def']['queries'],
-> = inferProcedureOutput<AppRouter['_def']['queries'][TRouteKey]>;

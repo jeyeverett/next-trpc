@@ -1,9 +1,12 @@
 import NextError from 'next/error';
 import { useRouter } from 'next/router';
+import type { inferRouterOutputs } from '@trpc/server';
 import { NextPageWithLayout } from '~/pages/_app';
-import { AppRouterTypes, trpc } from '~/utils/trpc';
+import { trpc } from '~/utils/trpc';
+import type { AppRouter } from '~/server/routers/_app';
 
-type PostByIdOutput = AppRouterTypes['post']['byId']['output'];
+type RouterOutput = inferRouterOutputs<AppRouter>;
+type PostByIdOutput = RouterOutput['post']['byId'];
 
 function PostItem(props: { post: PostByIdOutput }) {
   const { post } = props;

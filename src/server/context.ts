@@ -11,7 +11,7 @@ interface CreateContextInner {
     | NodeHTTPCreateContextFnOptions<IncomingMessage, ws>;
 }
 
-export const createContextInner = async (opts: CreateContextInner) => {
+export const createContextInner = async (opts: any) => {
   const session = await getSession(opts);
 
   console.log('createContext for', session?.user?.name ?? 'unknown user');

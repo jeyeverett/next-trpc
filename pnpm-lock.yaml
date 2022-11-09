@@ -26,6 +26,7 @@ specifiers:
   next-auth: ^4.16.4
   node-fetch: ^3.2.10
   npm-run-all: ^4.1.5
+  playwright: ^1.27.1
   prettier: ^2.7.1
   prisma: ^4.3.1
   react: ^18.2.0
@@ -72,6 +73,7 @@ devDependencies:
   eslint-plugin-react: 7.31.10_eslint@7.32.0
   eslint-plugin-react-hooks: 4.6.0_eslint@7.32.0
   npm-run-all: 4.1.5
+  playwright: 1.27.1
   prettier: 2.7.1
   prisma: 4.6.0
   start-server-and-test: 1.14.0
@@ -2608,6 +2610,15 @@ packages:
     resolution: {integrity: sha512-9EmeXDncC2Pmp/z+teoVYlvmPWUC6ejSSYZUln7YaP89Z6lpAaiaAnqroUt/BoLo8tn7WYShcfaCh+xofZa44Q==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
+
+  /playwright/1.27.1:
+    resolution: {integrity: sha512-xXYZ7m36yTtC+oFgqH0eTgullGztKSRMb4yuwLPl8IYSmgBM88QiB+3IWb1mRIC9/NNwcgbG0RwtFlg+EAFQHQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.27.1
     dev: true
 
   /postcss/8.4.14:

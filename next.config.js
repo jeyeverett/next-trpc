@@ -24,6 +24,9 @@ module.exports = getConfig({
    * @link https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
    */
   publicRuntimeConfig: {
+    APP_URL: env.APP_URL,
     NODE_ENV: env.NODE_ENV,
+    NEXTAUTH_URL: env.NEXTAUTH_URL,
+    WS_URL: env.WS_URL,
   },
 });

@@ -15,6 +15,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.37.0
   '@typescript-eslint/parser': ^5.37.0
   clsx: ^1.1.1
+  cross-env: ^7.0.3
   eslint: ^7.32.0
   eslint-config-next: ^12.3.1
   eslint-config-prettier: ^8.5.0
@@ -63,6 +64,7 @@ devDependencies:
   '@types/ws': 8.5.3
   '@typescript-eslint/eslint-plugin': 5.42.1_sgm4vy47mw7vebfms32yieo3xa
   '@typescript-eslint/parser': 5.42.1_3rubbgt5ekhqrcgx4uwls3neim
+  cross-env: 7.0.3
   eslint: 7.32.0
   eslint-config-next: 12.3.3_3rubbgt5ekhqrcgx4uwls3neim
   eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -924,6 +926,14 @@ packages:
   /core-js-pure/3.26.0:
     resolution: {integrity: sha512-LiN6fylpVBVwT8twhhluD9TzXmZQQsr2I2eIKtWNbZI1XMfBT7CV18itaN6RA7EtQd/SDdRx/wzvAShX2HvhQA==}
     requiresBuild: true
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/6.0.5:

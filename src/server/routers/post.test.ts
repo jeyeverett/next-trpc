@@ -5,7 +5,7 @@ import { createContext } from '../context';
 import { AppRouter, appRouter } from './_app';
 import { inferProcedureInput } from '@trpc/server';
 
-test('add and get post', async () => {
+test.skip('add and get post', async () => {
   const ctx = await createContext({});
   const caller = appRouter.createCaller(ctx);
 
